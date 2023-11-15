@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block profile %}
+ <div align="center" style="background-color: #f2f2f2; color: #333; font-family: Arial, sans-serif; padding: 20px;">
+<p>{{ current_user_id.name }} {{ current_user_id.surname }}</p>
+<p>Пол {{ current_user_id.gender }}</p>
+<p>{{ current_user_id.email }}</p>
+<p>{{ current_user_id.date_of_birth }}</p>
+
+	<p><li class="active"><a href="{% url 'edit_profile' user.pk %}">
+  	<button type="button" class="btn btn-warning">Редактировать</button></a></li></p>
+
+{% endblock %}

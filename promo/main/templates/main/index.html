@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title  }}
+{% endblock %}
+
+
+
+{% block content %}
+
+ <div align="center" style="background-color: #f2f2f2; color: #333; font-family: Arial, sans-serif; padding: 20px;">
+	{% if user.is_authenticated %}
+
+	<p><li class="active"><a href="{% url 'create_company' %}">
+  	<button type="button" class="btn btn-warning">Добавить кампанию</button></a></li></p>
+
+		<h4>Список кампаний</h4>
+
+			{% for i in compan %}
+            	<p><li class="active"><a href="{{ i.get_absolute_url }}">
+            	<button type="button" class="btn btn-outline-dark">{{ i.name_company }}</button></a></li></p>
+			{% endfor %}
+
+	{% else %}
+
+		<h4><i> Для добавления и изменения данных необходимо зарегистрироваться или войти как пользователь </i></h4>
+
+	{% endif %}
+
+	<div align="center">
+	
+	<h1> Кампании </h1>
+		
+	{% for i in compan %}	
+		<h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+		class="bi bi-vinyl-fill" viewBox="0 0 16 16">
+  		<path d="M8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  		<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/>
+		</svg><i> {{ i.name_company }}</i></h3>		
+	{% endfor %}
+
+	</div>
+
+{% endblock %}

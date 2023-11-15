@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Удаление данных сотрудника !{% endblock %}
+
+{% block content %}
+	 <div align="center" style="background-color: #f2f2f2; color: #333; font-family: Arial, sans-serif; padding: 20px;">
+	<h1>Удаление данных сотрудника !</h1>
+	<h3> Вы действительно хотите удалить данные сотрудника ?</h3>
+	<h4>Все данные сотрудника будут удалены !!!</h4>	
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="btn btn-danger">Удалить сотрудника</button>
+			<span>{{ error }}</span>		
+		</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Добавление дома{% endblock %}
+
+{% block content %}
+  <div align="center" style="background-color: #f2f2f2; color: #333; font-family: Arial, sans-serif; padding: 20px;">
+	<h1>Добавить дом</h1>	
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-success">Добавить</button>
+		<span>{{ error }}</span>		
+	</form>
+
+{% endblock %}

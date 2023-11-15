@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Редактирование
+
+{% endblock %}
+	         		
+{% block content %}
+ <div align="center" style="background-color: #f2f2f2; color: #333; font-family: Arial, sans-serif; padding: 20px;">
+	<h1>Изменение данных профиля</h1>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-info">Изменить</button>
+		<span>{{ error }}</span>
+
+	</form>
+
+{% endblock %}
